@@ -1,20 +1,23 @@
 const { sync } = require("../models/User");
-
 const router = require("express").Router();
-// const {} = require("../models");
+const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   res.render("homepage");
 });
 
-// Gets the login page and render it
+// Login
 router.get("/login", async (req, res) => {
-  //   try {
-  //     res.render("login");
-  //   } catch (error) {
-  //     res.status(500).json(error);
-  //   }
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
   res.render("login");
+});
+
+// Sign Up
+router.get("/signup", async (req, res) => {
+  res.render("signup");
 });
 
 router.get("/profile", async (req, res) => {
