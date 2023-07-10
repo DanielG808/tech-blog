@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const BlogPost = require("../../models/User.js");
+const BlogPost = require("../../models/BlogPost.js");
 
 // POST create a new user
 // POST /api/blogposts
@@ -12,4 +12,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-module.exports = BlogPost;
+module.exports = router;

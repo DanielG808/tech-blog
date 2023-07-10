@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const User = require("./User");
 
 class BlogPost extends Model {}
 
@@ -19,17 +20,19 @@ BlogPost.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    creator: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      references: {
-        username: user.username,
-      },
-    },
-    created_on: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
+    // creator: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    //   references: {
+    //     model: "user",
+    //     key: "id",
+    //   },
+    // },
+    // created_on: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: new Date(),
+    //   allowNull: false,
+    // },
   },
   {
     sequelize,
