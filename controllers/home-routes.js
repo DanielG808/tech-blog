@@ -20,6 +20,11 @@ router.get("/signup", async (req, res) => {
   res.render("signup");
 });
 
+// Create Post
+router.get("/create-post", async (req, res) => {
+  res.render("create-post");
+});
+
 router.get("/profile", async (req, res) => {
   res.render("profile");
 });

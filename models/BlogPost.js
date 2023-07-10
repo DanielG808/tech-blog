@@ -21,7 +21,7 @@ BlogPost.init(
     },
     creator: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       references: {
         username: user.username,
       },
