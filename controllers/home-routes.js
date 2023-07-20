@@ -32,7 +32,7 @@ router.get("/signup", async (req, res) => {
 router.get("/create-post", async (req, res) => {
   res.render("create-post");
 });
-
+// Get Profile
 router.get("/profile", async (req, res) => {
   res.render("profile");
 });
