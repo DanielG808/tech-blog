@@ -1,8 +1,14 @@
 <button id="create-button">Create New Post</button>
-<div class="posts">
-    {{#each posts as |post|}}
-    {{> blogpost post }}
-    {{/each}}
+<div class="posts container">
+  {{#each posts}}
+    <div class="card row" style="width: 100%">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p> {{User.username}} </p>
+        <p class="card-text">{{contents}}</p>
+      </div>
+    </div>
+  {{/each}}
 </div>
 
 <script src="/js/post.js"></script>

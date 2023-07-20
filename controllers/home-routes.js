@@ -1,9 +1,17 @@
-const { sync } = require("../models/User");
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
+const BlogPost = require("../models/BlogPost");
+const User = require("../models/User");
 
 router.get("/", async (req, res) => {
-  res.render("homepage");
+  try {
+    const blogPostData = await BlogPost.findAll();
+
+    const posts = blogPostData.map((post) => post.get({ plain: true }));
+    res.render("homepage", { posts });
+  } catch (error) {
+    res.json(error);
+  }
 });
 
 // Login
